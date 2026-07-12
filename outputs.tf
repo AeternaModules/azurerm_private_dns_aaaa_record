@@ -1,3 +1,7 @@
+output "private_dns_aaaa_records_id" {
+  description = "Map of id values across all private_dns_aaaa_records, keyed the same as var.private_dns_aaaa_records"
+  value       = { for k, v in azurerm_private_dns_aaaa_record.private_dns_aaaa_records : k => v.id }
+}
 output "private_dns_aaaa_records_fqdn" {
   description = "Map of fqdn values across all private_dns_aaaa_records, keyed the same as var.private_dns_aaaa_records"
   value       = { for k, v in azurerm_private_dns_aaaa_record.private_dns_aaaa_records : k => v.fqdn }
